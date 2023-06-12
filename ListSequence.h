@@ -1,6 +1,5 @@
 #pragma once
 
-#pragma once
 
 #include "LinkedList.h"
 #include "Sequence.h"

@@ -16,6 +16,7 @@ public:
 
     virtual StackBase<T>* GetSubCol(int, int) const = 0;
     virtual StackBase<T>* Concatenation(StackBase<T>*) const = 0;
+    virtual StackBase<T>* FindSubsequence(const StackBase<T>&) const = 0;
 
     virtual void Push(T) = 0;
 

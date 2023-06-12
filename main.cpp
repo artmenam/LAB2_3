@@ -31,6 +31,7 @@ void printMenu() {
     cout << "9. InsertAt" << endl;
     cout << "10. Map(multiply by 2)" << endl;
     cout << "11. Print stack" << endl;
+    cout << "12. Find substack" << endl;
     cout << "0. Exit" << endl;
     cout << "Enter your choice: ";
 }
@@ -143,6 +144,25 @@ void menu() {
             case 11:
                 cout << "Current stack: ";
                 printStack(stack);
+                break;
+
+            case 12:
+                stack2 = new Stack<T>;
+                cout << "Enter values to append subStack (enter -1 to stop): " << endl;
+                while (true) {
+                    cin >> value;
+                    if (value == -1) {
+                        break;
+                    }
+                    stack2->Push(value);
+                }
+                if (stack->FindSubsequence(*stack2) == nullptr) {
+                    cout << "SubStack not found." << endl;
+                } else {
+                    cout << "SubStack found" << endl;
+                }
+                printStack(stack);
+                delete stack2;
                 break;
             case 0:
                 exitMenu = true;

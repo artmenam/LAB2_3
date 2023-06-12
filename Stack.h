@@ -50,6 +50,41 @@ public:
         return res;
     }
 
+    Stack<T>* FindSubsequence(const StackBase<T>& subsequence) const override{
+        Stack<T>* result = new Stack<T>();
+
+        int subIndex = 0;
+        int stackIndex = 0;
+        int subSize = subsequence.GetSize();
+        int stackSize = this->GetSize();
+
+        while (stackIndex < stackSize) {
+            if (this->sequence->Get(stackIndex) == subsequence.GetSequence()->Get(subIndex)) {
+                subIndex++;
+                stackIndex++;
+
+                if (subIndex == subSize) {
+                    int startIndex = stackIndex - subSize;
+                    int endIndex = stackIndex - 1;
+
+                    for (int i = startIndex; i <= endIndex; i++) {
+                        result->Push(this->sequence->Get(i));
+                    }
+
+                    return result;
+                }
+            }
+            else {
+                subIndex = 0;
+                stackIndex++;
+            }
+        }
+
+        delete result;
+        return nullptr;
+    }
+
+
     int GetSize() const override {
         return this->sequence->GetSize();
     }
